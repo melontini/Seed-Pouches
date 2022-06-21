@@ -25,6 +25,12 @@
  
  ![DropperBag](https://user-images.githubusercontent.com/104443436/174802849-fcfda792-0ae4-49c9-813c-f8e920a43de8.gif)
  
+ ### Getting This Amazing Novelty
+ 
+ Farmers will start selling the pouch for 3 emeralds on their second level.
+ 
+ <img src="https://user-images.githubusercontent.com/104443436/174812553-ba70d593-2f5a-444b-a2b0-eb998483a2f0.png" width="548">
+ 
  ## New Gamerule
  
  This mod also adds a new GameRule
