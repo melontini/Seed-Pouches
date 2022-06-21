@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "seed-pouches",
+  "version": "${version}",
+  "name": "Seed Pouches",
+  "description": "",
+  "authors": [
+    "melontini"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/seed_pouch/textures/item/seed_pouch.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "me.melontini.seedpouches.client.SeedPouchesClient"
+    ],
+    "main": [
+      "me.melontini.seedpouches.SeedPouches"
+    ]
+  },
+  "mixins": [
+    "seed-pouches.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "1.18.2"
+  }
+}
