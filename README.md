@@ -1,6 +1,6 @@
 # <img src="https://user-images.githubusercontent.com/104443436/174792973-21d1973b-2513-462d-8d2c-cea9bb11ed6a.png" width="50"> Overly Complicated Seed-Pouch Mod
 
- Why is it "Pouches" if there's only 1 pouch?
+ The BEST seed pouch mod out there*
  
  ## Items
  This mod adds just one item, but it's probably the best item in the game.
