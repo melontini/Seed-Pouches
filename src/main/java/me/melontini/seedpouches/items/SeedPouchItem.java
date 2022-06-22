@@ -24,6 +24,7 @@ public class SeedPouchItem extends Item {
     public SeedPouchItem(Settings settings) {
         super(settings);
     }
+
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
@@ -42,6 +43,7 @@ public class SeedPouchItem extends Item {
 
         return TypedActionResult.success(itemStack, world.isClient());
     }
+
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
         World world = entity.getWorld();

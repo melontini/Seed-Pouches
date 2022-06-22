@@ -11,13 +11,11 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
 
 import java.util.UUID;
 
-import static me.melontini.seedpouches.SeedPouches.ID;
 import static me.melontini.seedpouches.SeedPouches.SEED_POUCH_PACKET_ID;
 
 @Environment(EnvType.CLIENT)

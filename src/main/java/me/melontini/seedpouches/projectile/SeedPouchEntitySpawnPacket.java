@@ -25,6 +25,7 @@ public class SeedPouchEntitySpawnPacket {
 
         return ServerPlayNetworking.createS2CPacket(packetID, byteBuf);
     }
+
     public static final class PacketBufUtil {
         public static byte packAngle(float angle) {
             return (byte) MathHelper.floor(angle * 256 / 360);
@@ -47,6 +48,7 @@ public class SeedPouchEntitySpawnPacket {
             byteBuf.writeDouble(vec3d.y);
             byteBuf.writeDouble(vec3d.z);
         }
+
         public static Vec3d readVec3d(PacketByteBuf byteBuf) {
             double x = byteBuf.readDouble();
             double y = byteBuf.readDouble();
