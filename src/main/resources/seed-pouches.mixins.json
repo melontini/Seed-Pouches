@@ -4,7 +4,10 @@
   "package": "me.melontini.seedpouches.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ItemEntityMixin"
+    "BarrelBlockEntityMixin",
+    "ChestBlockEntityMixin",
+    "ItemEntityMixin",
+    "ShulkerBlockEntityMixin"
   ],
   "client": [
   ],

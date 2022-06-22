@@ -9,7 +9,7 @@
   ],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/seed_pouch/textures/item/seed_pouch.png",
+  "icon": "assets/seed_pouches/textures/item/seed_pouch.png",
   "environment": "*",
   "entrypoints": {
     "client": [
