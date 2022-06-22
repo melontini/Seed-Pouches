@@ -32,22 +32,22 @@ import java.util.List;
 
 import static me.melontini.seedpouches.SeedPouches.SEED_POUCH_PACKET_ID;
 
-public class SeedPouchEntity extends ThrownItemEntity {
-    public SeedPouchEntity(EntityType<? extends SeedPouchEntity> entityType, World world) {
+public class FlowerPouchEntity extends ThrownItemEntity {
+    public FlowerPouchEntity(EntityType<? extends FlowerPouchEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    public SeedPouchEntity(LivingEntity owner, World world) {
-        super(EntityRegistry.SEED_POUCH_ENTITY, owner, world);
+    public FlowerPouchEntity(LivingEntity owner, World world) {
+        super(EntityRegistry.FLOWER_POUCH_ENTITY, owner, world);
     }
 
-    public SeedPouchEntity(double x, double y, double z, World world) {
-        super(EntityRegistry.SEED_POUCH_ENTITY, x, y, z, world);
+    public FlowerPouchEntity(double x, double y, double z, World world) {
+        super(EntityRegistry.FLOWER_POUCH_ENTITY, x, y, z, world);
     }
 
     @Override
     protected Item getDefaultItem() {
-        return ItemRegistry.SEED_POUCH;
+        return ItemRegistry.FLOWER_POUCH;
     }
 
     @Override
@@ -70,7 +70,7 @@ public class SeedPouchEntity extends ThrownItemEntity {
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         if (!world.isClient) {
-            Identifier LOOT_ID = new Identifier(SeedPouches.ID, "dropped_seeds");
+            Identifier LOOT_ID = new Identifier(SeedPouches.ID, "dropped_flowers");
             List<ItemStack> stacks = (
                     (ServerWorld) world)
                     .getServer()
@@ -102,7 +102,7 @@ public class SeedPouchEntity extends ThrownItemEntity {
         if (!world.isClient) {
             Vec3d pos = blockHitResult.getPos();
             BlockPos blockPos = blockHitResult.getBlockPos();
-            Identifier LOOT_ID = new Identifier(SeedPouches.ID, "dropped_seeds");
+            Identifier LOOT_ID = new Identifier(SeedPouches.ID, "dropped_flowers");
             //System.out.println("loot table should be ready");
             List<ItemStack> stacks = (
                     (ServerWorld) world)
