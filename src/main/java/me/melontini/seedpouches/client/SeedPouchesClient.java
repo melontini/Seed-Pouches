@@ -2,6 +2,7 @@ package me.melontini.seedpouches.client;
 
 import me.melontini.seedpouches.SeedPouches;
 import me.melontini.seedpouches.projectile.SeedPouchEntitySpawnPacket;
+import me.melontini.seedpouches.registries.EntityRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -23,7 +24,8 @@ public class SeedPouchesClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        EntityRendererRegistry.register(SeedPouches.SEED_POUCH_ENTITY, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.SEED_POUCH_ENTITY, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.FLOWER_POUCH_ENTITY, FlyingItemEntityRenderer::new);
         receiveEntityPacket();
     }
 
