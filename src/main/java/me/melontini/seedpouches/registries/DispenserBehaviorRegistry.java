@@ -2,6 +2,7 @@ package me.melontini.seedpouches.registries;
 
 import me.melontini.seedpouches.SeedPouches;
 import me.melontini.seedpouches.projectile.FlowerPouchEntity;
+import me.melontini.seedpouches.projectile.SaplingPouchEntity;
 import me.melontini.seedpouches.projectile.SeedPouchEntity;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.ProjectileDispenserBehavior;
@@ -22,6 +23,12 @@ public class DispenserBehaviorRegistry {
             @Override
             protected ProjectileEntity createProjectile(World world, Position pos, ItemStack stack) {
                 return new FlowerPouchEntity(pos.getX(), pos.getY(), pos.getZ(), world);
+            }
+        });
+        DispenserBlock.registerBehavior(ItemRegistry.SAPLING_POUCH, new ProjectileDispenserBehavior() {
+            @Override
+            protected ProjectileEntity createProjectile(World world, Position pos, ItemStack stack) {
+                return new SaplingPouchEntity(pos.getX(), pos.getY(), pos.getZ(), world);
             }
         });
     }

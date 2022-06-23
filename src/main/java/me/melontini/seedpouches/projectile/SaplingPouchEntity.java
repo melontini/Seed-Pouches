@@ -19,22 +19,22 @@ import org.jetbrains.annotations.NotNull;
 
 import static me.melontini.seedpouches.SeedPouches.SEED_POUCH_PACKET_ID;
 
-public class SeedPouchEntity extends ThrownItemEntity {
-    public SeedPouchEntity(EntityType<? extends SeedPouchEntity> entityType, World world) {
+public class SaplingPouchEntity extends ThrownItemEntity {
+    public SaplingPouchEntity(EntityType<? extends SaplingPouchEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    public SeedPouchEntity(LivingEntity owner, World world) {
-        super(EntityRegistry.SEED_POUCH_ENTITY, owner, world);
+    public SaplingPouchEntity(LivingEntity owner, World world) {
+        super(EntityRegistry.SAPLING_POUCH_ENTITY, owner, world);
     }
 
-    public SeedPouchEntity(double x, double y, double z, World world) {
-        super(EntityRegistry.SEED_POUCH_ENTITY, x, y, z, world);
+    public SaplingPouchEntity(double x, double y, double z, World world) {
+        super(EntityRegistry.SAPLING_POUCH_ENTITY, x, y, z, world);
     }
 
     @Override
     protected Item getDefaultItem() {
-        return ItemRegistry.SEED_POUCH;
+        return ItemRegistry.SAPLING_POUCH;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class SeedPouchEntity extends ThrownItemEntity {
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         if (!world.isClient) {
-            Identifier LOOT_ID = new Identifier(SeedPouches.ID, "dropped_seeds");
+            Identifier LOOT_ID = new Identifier(SeedPouches.ID, "dropped_saplings");
             PouchLogicMethods.pouchEntityLogic(world, LOOT_ID, this, entityHitResult);
         }
     }
@@ -64,10 +64,9 @@ public class SeedPouchEntity extends ThrownItemEntity {
     @Override
     protected void onBlockHit(@NotNull BlockHitResult blockHitResult) {
         if (!world.isClient) {
-            Identifier LOOT_ID = new Identifier(SeedPouches.ID, "dropped_seeds");
+            Identifier LOOT_ID = new Identifier(SeedPouches.ID, "dropped_saplings");
             PouchLogicMethods.pouchBlockLogic(world, LOOT_ID, this, blockHitResult);
         }
-
         BlockState blockState = this.world.getBlockState(blockHitResult.getBlockPos());
         blockState.onProjectileHit(this.world, blockState, blockHitResult, this);
     }

@@ -1,7 +1,7 @@
 package me.melontini.seedpouches.mixin;
 
 
-import me.melontini.seedpouches.access.ChestBlockEntityAccess;
+import me.melontini.seedpouches.access.OpenableBlockEntityAccess;
 import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ChestBlockEntity.class)
-public abstract class ChestBlockEntityMixin implements ChestBlockEntityAccess {
+public abstract class ChestBlockEntityMixin implements OpenableBlockEntityAccess {
     private boolean seed_pouches$open;
     private int seed_pouches$playersinside;
 
@@ -18,7 +18,6 @@ public abstract class ChestBlockEntityMixin implements ChestBlockEntityAccess {
     public void onOpen(PlayerEntity player, CallbackInfo ci) {
         this.seed_pouches$playersinside = seed_pouches$playersinside + 1;
         this.seed_pouches$open = true;
-        //System.out.println(seed_pouches$open);
     }
 
     @Inject(at = @At("HEAD"), method = "onClose")
@@ -27,7 +26,6 @@ public abstract class ChestBlockEntityMixin implements ChestBlockEntityAccess {
         if (seed_pouches$playersinside == 0) {
             this.seed_pouches$open = false;
         }
-        //System.out.println(seed_pouches$open);
     }
 
     @Override

@@ -32,6 +32,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     modCompileOnly("curse.maven:more_villagers-486080:3843500")
+    modCompileOnly("curse.maven:farmersdelight-482834:3770564")
 }
 
 loom {

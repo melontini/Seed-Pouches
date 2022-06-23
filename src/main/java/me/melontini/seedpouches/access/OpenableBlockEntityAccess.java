@@ -1,5 +1,5 @@
 package me.melontini.seedpouches.access;
 
-public interface ChestBlockEntityAccess {
+public interface OpenableBlockEntityAccess {
     boolean isOpen();
 }
