@@ -3,7 +3,7 @@
  The BEST seed pouch mod out there*
  
  ## Items
- This mod adds just one item, but it's probably the best item in the game.
+ This mod adds three new items.
  
  Meet the Seed Pouch!
  
@@ -20,6 +20,28 @@
  ![BagThrowPlayer](https://user-images.githubusercontent.com/104443436/174800732-1ac1cbf1-bc36-4283-8efa-f697a6676f4f.gif)
  
  You can also just use the bag on a player to achieve the same effect without releasing the projectile.
+ 
+ ### New Since 0.4
+ 
+ Meet the Flower Pouch!
+ 
+ ![FlowerPouch](https://user-images.githubusercontent.com/104443436/175283853-5b2ad50a-5ec1-4934-9d3d-7d71989c985d.gif)
+ 
+ If [MoreVillagers](https://www.curseforge.com/minecraft/mc-mods/more-villagers-fabric) is installed, you can get the pouch from the florist, else Farmers are your best friends.
+ 
+ and the Sapling Pouch!
+ 
+ ![SaplingPouch](https://user-images.githubusercontent.com/104443436/175284197-e5d4c4a2-8151-4194-bf50-fedfe70895ae.gif)
+ 
+ If [MoreVillagers](https://www.curseforge.com/minecraft/mc-mods/more-villagers-fabric) is installed, you can get the pouch from the forester, else Farmers are still your best friends.
+ 
+ ### Farmer's Delight support
+ 
+ Still from the 0.4 update
+ 
+ You can now throw items into open pantries.
+ 
+ ![FarmersDelightSupport](https://user-images.githubusercontent.com/104443436/175285723-d14c7297-ac88-4100-b5d1-acfd305b07fa.gif)
  
  ### The Second Best Feature
  
