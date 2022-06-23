@@ -26,6 +26,7 @@ public class SeedPouchesClient implements ClientModInitializer {
     public void onInitializeClient() {
         EntityRendererRegistry.register(EntityRegistry.SEED_POUCH_ENTITY, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.FLOWER_POUCH_ENTITY, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.SAPLING_POUCH_ENTITY, FlyingItemEntityRenderer::new);
         receiveEntityPacket();
     }
 

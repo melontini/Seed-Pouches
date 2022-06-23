@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "seed_pouches:item/sapling_pouch"
+  }
+}

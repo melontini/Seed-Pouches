@@ -32,5 +32,19 @@ public class TradesRegistry {
                     12, 4, 0.06f
             )));
         });
+
+        VillagerProfession sapling_profession;
+        if (FabricLoader.getInstance().isModLoaded("morevillagers")) {
+            sapling_profession = MVProfessions.WOODWORKER.get();
+        } else {
+            sapling_profession = VillagerProfession.FARMER;
+        }
+        TradeOfferHelper.registerVillagerOffers(sapling_profession, 2, factories -> {
+            factories.add(((entity, random) -> new TradeOffer(
+                    new ItemStack(Items.EMERALD, 5),
+                    new ItemStack(ItemRegistry.FLOWER_POUCH, 1),
+                    12, 4, 0.06f
+            )));
+        });
     }
 }

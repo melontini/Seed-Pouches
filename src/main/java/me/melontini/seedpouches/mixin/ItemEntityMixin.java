@@ -53,19 +53,21 @@ public abstract class ItemEntityMixin {
         ItemStack stack = this.getStack();
         BlockPos pos = entity.getBlockPos();
         World world = entity.getWorld();
-        if (entity.age % 20 == 0) {
+        if (entity.age % Math.floor(Math.random() * (100) + 20) == 0) {
             if (world.getGameRules().getBoolean(AUTO_PLANT_WHEN_POSSIBLE)) {
                 if (stack.getItem() instanceof BlockItem) {
                     if (((BlockItem) stack.getItem()).getBlock() instanceof PlantBlock) {
-                        ((BlockItem) stack.getItem()).place(new ItemPlacementContext(world, null, null, stack, world.raycast(
-                                new RaycastContext(
-                                        new Vec3d(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5),
-                                        new Vec3d(pos.getX() + 0.5, pos.getY() - 0.5, pos.getZ() + 0.5),
-                                        RaycastContext.ShapeType.COLLIDER,
-                                        RaycastContext.FluidHandling.ANY,
-                                        entity
-                                )
-                        )));
+                        if (world.getFluidState(pos).isEmpty()) {
+                            ((BlockItem) stack.getItem()).place(new ItemPlacementContext(world, null, null, stack, world.raycast(
+                                    new RaycastContext(
+                                            new Vec3d(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5),
+                                            new Vec3d(pos.getX() + 0.5, pos.getY() - 0.5, pos.getZ() + 0.5),
+                                            RaycastContext.ShapeType.COLLIDER,
+                                            RaycastContext.FluidHandling.ANY,
+                                            entity
+                                    )
+                            )));
+                        }
                     }
                 }
             }

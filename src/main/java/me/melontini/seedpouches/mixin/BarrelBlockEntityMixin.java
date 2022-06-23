@@ -1,6 +1,6 @@
 package me.melontini.seedpouches.mixin;
 
-import me.melontini.seedpouches.access.ChestBlockEntityAccess;
+import me.melontini.seedpouches.access.OpenableBlockEntityAccess;
 import net.minecraft.block.entity.BarrelBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BarrelBlockEntity.class)
-public class BarrelBlockEntityMixin implements ChestBlockEntityAccess {
+public class BarrelBlockEntityMixin implements OpenableBlockEntityAccess {
     private boolean seed_pouches$open;
     private int seed_pouches$playersinside;
 
