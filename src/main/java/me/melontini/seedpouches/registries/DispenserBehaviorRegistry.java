@@ -1,9 +1,8 @@
 package me.melontini.seedpouches.registries;
 
-import me.melontini.seedpouches.SeedPouches;
-import me.melontini.seedpouches.projectile.FlowerPouchEntity;
-import me.melontini.seedpouches.projectile.SaplingPouchEntity;
-import me.melontini.seedpouches.projectile.SeedPouchEntity;
+import me.melontini.seedpouches.projectile.types.FlowerPouchEntity;
+import me.melontini.seedpouches.projectile.types.SaplingPouchEntity;
+import me.melontini.seedpouches.projectile.types.SeedPouchEntity;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.ProjectileDispenserBehavior;
 import net.minecraft.entity.projectile.ProjectileEntity;
