@@ -1,8 +1,8 @@
 package me.melontini.seedpouches.items;
 
 import me.melontini.seedpouches.SeedPouches;
-import me.melontini.seedpouches.projectile.FlowerPouchEntity;
-import me.melontini.seedpouches.projectile.SaplingPouchEntity;
+import me.melontini.seedpouches.projectile.types.SaplingPouchEntity;
+import me.melontini.seedpouches.registries.EntityRegistry;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -31,10 +31,10 @@ public class SaplingPouchItem extends Item {
         ItemStack itemStack = user.getStackInHand(hand);
         world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!world.isClient) {
-            SaplingPouchEntity saplingPouchEntity = new SaplingPouchEntity(user, world);
-            saplingPouchEntity.setItem(itemStack);
-            saplingPouchEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 1.0F);
-            world.spawnEntity(saplingPouchEntity);
+            var entity = new SaplingPouchEntity(user, world);
+            entity.setItem(itemStack);
+            entity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 1.0F);
+            world.spawnEntity(entity);
         }
 
         user.incrementStat(Stats.USED.getOrCreateStat(this));
