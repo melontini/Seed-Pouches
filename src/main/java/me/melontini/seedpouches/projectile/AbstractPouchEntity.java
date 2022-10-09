@@ -131,9 +131,7 @@ public abstract class AbstractPouchEntity extends ThrownItemEntity {
                     }
                 } else {
                     Vec3d pos = entityHitResult.getEntity().getPos();
-                    for (ItemStack stack : stacks) {
-                        spawnItem(pos, stack, world);
-                    }
+                    stacks.forEach(stack -> spawnItem(pos, stack, world));
                 }
             }
             this.discard();
