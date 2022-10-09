@@ -164,7 +164,11 @@ public abstract class AbstractPouchEntity extends ThrownItemEntity {
                         inventory = ChestBlock.getInventory((ChestBlock) blockWithEntity, world.getBlockState(blockPos), world, blockPos, true);
                     } else if (blockEntity instanceof Inventory inventory1) {
                         inventory = inventory1;
-                    } else return;
+                    } else {
+                        stacks.forEach(stack -> spawnItem(pos, stack, world));
+                        this.discard();
+                        return;
+                    }
 
                     for (ItemStack stack : stacks) {
                         assert inventory != null;
