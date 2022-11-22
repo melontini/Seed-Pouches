@@ -1,8 +1,6 @@
 package me.melontini.seedpouches.registries;
 
-import com.samebutdifferent.morevillagers.MoreVillagers;
 import com.samebutdifferent.morevillagers.registry.MVProfessions;
-import me.melontini.seedpouches.SeedPouches;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.ItemStack;

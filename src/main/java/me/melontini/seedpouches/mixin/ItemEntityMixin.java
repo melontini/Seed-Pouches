@@ -40,10 +40,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Random;
+
 import static me.melontini.seedpouches.SeedPouches.AUTO_PLANT_WHEN_POSSIBLE;
 
 @Mixin(ItemEntity.class)
 public abstract class ItemEntityMixin {
+    private final Random random = new Random();
     @Shadow
     public abstract ItemStack getStack();
 
@@ -53,7 +56,7 @@ public abstract class ItemEntityMixin {
         ItemStack stack = this.getStack();
         BlockPos pos = entity.getBlockPos();
         World world = entity.getWorld();
-        if (entity.age % Math.floor(Math.random() * (100) + 20) == 0) {
+        if (entity.age % random.nextInt(20, 101) == 0) {
             if (world.getGameRules().getBoolean(AUTO_PLANT_WHEN_POSSIBLE)) {
                 if (stack.getItem() instanceof BlockItem) {
                     if (((BlockItem) stack.getItem()).getBlock() instanceof PlantBlock) {
