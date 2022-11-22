@@ -1,6 +1,5 @@
 package me.melontini.seedpouches.client;
 
-import me.melontini.seedpouches.SeedPouches;
 import me.melontini.seedpouches.projectile.SeedPouchEntitySpawnPacket;
 import me.melontini.seedpouches.registries.EntityRegistry;
 import net.fabricmc.api.ClientModInitializer;

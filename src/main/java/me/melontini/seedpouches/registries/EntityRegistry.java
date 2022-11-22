@@ -15,18 +15,15 @@ import net.minecraft.util.registry.Registry;
 public class EntityRegistry {
     public static final EntityType<AbstractPouchEntity> SEED_POUCH_ENTITY = FabricEntityTypeBuilder.<AbstractPouchEntity>create(SpawnGroup.MISC, SeedPouchEntity::new)
             .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
-            .trackRangeBlocks(4).trackedUpdateRate(10)
-            .build();
+            .trackRangeChunks(4).trackedUpdateRate(10).build();
 
     public static final EntityType<AbstractPouchEntity> FLOWER_POUCH_ENTITY = FabricEntityTypeBuilder.<AbstractPouchEntity>create(SpawnGroup.MISC, FlowerPouchEntity::new)
             .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
-            .trackRangeBlocks(4).trackedUpdateRate(10)
-            .build();
+            .trackRangeChunks(4).trackedUpdateRate(10).build();
 
     public static final EntityType<AbstractPouchEntity> SAPLING_POUCH_ENTITY = FabricEntityTypeBuilder.<AbstractPouchEntity>create(SpawnGroup.MISC, SaplingPouchEntity::new)
             .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
-            .trackRangeBlocks(4).trackedUpdateRate(10)
-            .build();
+            .trackRangeChunks(4).trackedUpdateRate(10).build();
 
     public static void register() {
         Registry.register(Registry.ENTITY_TYPE, new Identifier(SeedPouches.ID, "seed_pouch"), SEED_POUCH_ENTITY);

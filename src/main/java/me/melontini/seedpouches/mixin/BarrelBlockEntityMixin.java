@@ -15,13 +15,13 @@ public class BarrelBlockEntityMixin implements OpenableBlockEntityAccess {
 
     @Inject(at = @At("HEAD"), method = "onOpen")
     public void onOpen(PlayerEntity player, CallbackInfo ci) {
-        this.seed_pouches$playersinside = seed_pouches$playersinside + 1;
+        this.seed_pouches$playersinside += 1;
         this.seed_pouches$open = true;
     }
 
     @Inject(at = @At("HEAD"), method = "onClose")
     public void onClose(PlayerEntity player, CallbackInfo ci) {
-        this.seed_pouches$playersinside = seed_pouches$playersinside - 1;
+        this.seed_pouches$playersinside -= 1;
         if (seed_pouches$playersinside == 0) {
             this.seed_pouches$open = false;
         }
