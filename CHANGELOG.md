@@ -1,3 +1,4 @@
 ## 0.5
 
-This version contains big refactors to the code, but no gameplay changes.
+What's new:
+* Refactors + 1.19 update 👍
