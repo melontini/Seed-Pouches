@@ -1,6 +1,6 @@
 package me.melontini.seedpouches.mixin;
 
-import com.nhoryzon.mc.farmersdelight.entity.block.PantryBlockEntity;
+import com.nhoryzon.mc.farmersdelight.entity.block.CabinetBlockEntity;
 import me.melontini.crackerutil.util.mixin.MixinShouldApply;
 import me.melontini.crackerutil.util.mixin.Mod;
 import me.melontini.seedpouches.access.OpenableBlockEntityAccess;
@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Pseudo
-@Mixin(PantryBlockEntity.class)
+@Mixin(CabinetBlockEntity.class)
 @MixinShouldApply(mods = @Mod("farmersdelight"))
 public class PantryBlockEntityMixin implements OpenableBlockEntityAccess {
     private boolean seed_pouches$open;
