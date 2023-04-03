@@ -1,6 +1,7 @@
 package me.melontini.seedpouches.projectile;
 
 import me.melontini.seedpouches.access.OpenableBlockEntityAccess;
+import me.melontini.seedpouches.items.AbstractPouchItem;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.ChestBlock;
@@ -13,7 +14,6 @@ import net.minecraft.entity.passive.MerchantEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.context.LootContextTypes;
@@ -76,7 +76,7 @@ public abstract class AbstractPouchEntity extends ThrownItemEntity {
     }
 
     @Override
-    protected abstract Item getDefaultItem();
+    protected abstract AbstractPouchItem getDefaultItem();
 
     @Override
     protected void onCollision(@NotNull HitResult hitResult) {
@@ -198,7 +198,9 @@ public abstract class AbstractPouchEntity extends ThrownItemEntity {
         blockState.onProjectileHit(this.world, blockState, blockHitResult, this);
     }
 
-    public abstract Identifier[] getLootId();
+    public Identifier[] getLootId() {
+        return getDefaultItem().getLootId();
+    }
 
     @Override
     public Packet<?> createSpawnPacket() {

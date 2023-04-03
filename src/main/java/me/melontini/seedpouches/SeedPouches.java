@@ -19,9 +19,9 @@ public class SeedPouches implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        DispenserBehaviorRegistry.register();
         EntityRegistry.register();
         ItemRegistry.register();
         TradesRegistry.register();
+        DispenserBehaviorRegistry.register();
     }
 }

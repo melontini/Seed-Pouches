@@ -40,7 +40,7 @@ public class TradesRegistry {
         TradeOfferHelper.registerVillagerOffers(sapling_profession, 2, factories -> {
             factories.add(((entity, random) -> new TradeOffer(
                     new ItemStack(Items.EMERALD, 5),
-                    new ItemStack(ItemRegistry.FLOWER_POUCH, 1),
+                    new ItemStack(ItemRegistry.SAPLING_POUCH, 1),
                     12, 4, 0.06f
             )));
         });

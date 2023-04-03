@@ -1,6 +1,5 @@
 package me.melontini.seedpouches.client;
 
-import me.melontini.seedpouches.projectile.SeedPouchEntitySpawnPacket;
 import me.melontini.seedpouches.registries.EntityRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -34,9 +33,13 @@ public class SeedPouchesClient implements ClientModInitializer {
             EntityType<?> et = Registry.ENTITY_TYPE.get(byteBuf.readVarInt());
             UUID uuid = byteBuf.readUuid();
             int entityId = byteBuf.readVarInt();
-            Vec3d pos = SeedPouchEntitySpawnPacket.PacketBufUtil.readVec3d(byteBuf);
-            float pitch = SeedPouchEntitySpawnPacket.PacketBufUtil.readAngle(byteBuf);
-            float yaw = SeedPouchEntitySpawnPacket.PacketBufUtil.readAngle(byteBuf);
+
+            double x = byteBuf.readDouble();
+            double y = byteBuf.readDouble();
+            double z = byteBuf.readDouble();
+            Vec3d pos = new Vec3d(x, y, z);
+            float pitch = (byteBuf.readByte() * 360) / 256f;
+            float yaw = (byteBuf.readByte() * 360) / 256f;
             client.execute(() -> {
                 {
                     if (MinecraftClient.getInstance().world == null)

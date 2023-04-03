@@ -1,3 +1,3 @@
-## 0.5
+## What's new:
 
-This version contains big refactors to the code, but no gameplay changes.
+* This version contains big refactors to the code, but no gameplay changes. 2
