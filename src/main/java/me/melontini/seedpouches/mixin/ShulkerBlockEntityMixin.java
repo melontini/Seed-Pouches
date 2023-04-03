@@ -11,18 +11,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ShulkerBoxBlockEntity.class)
 public class ShulkerBlockEntityMixin implements OpenableBlockEntityAccess {
     private boolean seed_pouches$open;
-    private int seed_pouches$playersinside;
+    private int seed_pouches$playersInside;
 
     @Inject(at = @At("HEAD"), method = "onOpen")
     public void onOpen(PlayerEntity player, CallbackInfo ci) {
-        this.seed_pouches$playersinside += 1;
+        this.seed_pouches$playersInside += 1;
         this.seed_pouches$open = true;
     }
 
     @Inject(at = @At("HEAD"), method = "onClose")
     public void onClose(PlayerEntity player, CallbackInfo ci) {
-        this.seed_pouches$playersinside -= 1;
-        if (seed_pouches$playersinside == 0) {
+        this.seed_pouches$playersInside -= 1;
+        if (seed_pouches$playersInside == 0) {
             this.seed_pouches$open = false;
         }
     }

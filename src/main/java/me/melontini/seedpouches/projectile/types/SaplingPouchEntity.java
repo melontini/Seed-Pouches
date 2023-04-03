@@ -1,13 +1,11 @@
 package me.melontini.seedpouches.projectile.types;
 
-import me.melontini.seedpouches.SeedPouches;
+import me.melontini.seedpouches.items.AbstractPouchItem;
 import me.melontini.seedpouches.projectile.AbstractPouchEntity;
 import me.melontini.seedpouches.registries.EntityRegistry;
 import me.melontini.seedpouches.registries.ItemRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.Item;
-import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 public class SaplingPouchEntity extends AbstractPouchEntity {
@@ -24,12 +22,7 @@ public class SaplingPouchEntity extends AbstractPouchEntity {
     }
 
     @Override
-    protected Item getDefaultItem() {
+    protected AbstractPouchItem getDefaultItem() {
         return ItemRegistry.SAPLING_POUCH;
-    }
-
-    @Override
-    public Identifier[] getLootId() {
-        return new Identifier[]{new Identifier(SeedPouches.ID, "dropped_saplings")};
     }
 }
