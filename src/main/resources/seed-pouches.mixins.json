@@ -3,6 +3,7 @@
   "minVersion": "0.8",
   "package": "me.melontini.seedpouches.mixin",
   "compatibilityLevel": "JAVA_17",
+  "plugin": "me.melontini.seedpouches.mixin.Plugin",
   "mixins": [
     "BarrelBlockEntityMixin",
     "ChestBlockEntityMixin",

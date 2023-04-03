@@ -1,6 +1,8 @@
 package me.melontini.seedpouches.mixin;
 
 import com.nhoryzon.mc.farmersdelight.entity.block.PantryBlockEntity;
+import me.melontini.crackerutil.util.mixin.MixinShouldApply;
+import me.melontini.crackerutil.util.mixin.Mod;
 import me.melontini.seedpouches.access.OpenableBlockEntityAccess;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -11,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Pseudo
 @Mixin(PantryBlockEntity.class)
+@MixinShouldApply(mods = @Mod("farmersdelight"))
 public class PantryBlockEntityMixin implements OpenableBlockEntityAccess {
     private boolean seed_pouches$open;
     private int seed_pouches$playersInside;
