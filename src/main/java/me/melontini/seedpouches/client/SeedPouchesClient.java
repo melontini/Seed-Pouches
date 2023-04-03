@@ -4,18 +4,8 @@ import me.melontini.seedpouches.registries.EntityRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.registry.Registries;
-import net.minecraft.util.math.Vec3d;
-
-import java.util.UUID;
-
-import static me.melontini.seedpouches.SeedPouches.SEED_POUCH_PACKET_ID;
 
 @Environment(EnvType.CLIENT)
 public class SeedPouchesClient implements ClientModInitializer {
@@ -25,37 +15,5 @@ public class SeedPouchesClient implements ClientModInitializer {
         EntityRendererRegistry.register(EntityRegistry.SEED_POUCH_ENTITY, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.FLOWER_POUCH_ENTITY, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.SAPLING_POUCH_ENTITY, FlyingItemEntityRenderer::new);
-        receiveEntityPacket();
-    }
-
-    public void receiveEntityPacket() {
-        ClientPlayNetworking.registerGlobalReceiver(SEED_POUCH_PACKET_ID, ((client, handler, byteBuf, responseSender) -> {
-            EntityType<?> et = Registries.ENTITY_TYPE.get(byteBuf.readVarInt());
-            UUID uuid = byteBuf.readUuid();
-            int entityId = byteBuf.readVarInt();
-
-            double x = byteBuf.readDouble();
-            double y = byteBuf.readDouble();
-            double z = byteBuf.readDouble();
-            Vec3d pos = new Vec3d(x, y, z);
-            float pitch = (byteBuf.readByte() * 360) / 256f;
-            float yaw = (byteBuf.readByte() * 360) / 256f;
-            client.execute(() -> {
-                {
-                    if (MinecraftClient.getInstance().world == null)
-                        throw new IllegalStateException("Tried to spawn entity in a null world!");
-                    Entity e = et.create(MinecraftClient.getInstance().world);
-                    if (e == null)
-                        throw new IllegalStateException("Failed to create instance of entity \"" + Registries.ENTITY_TYPE.getId(et) + "\"!");
-                    e.updateTrackedPosition(pos.x, pos.y, pos.z);
-                    e.setPos(pos.x, pos.y, pos.z);
-                    e.setPitch(pitch);
-                    e.setYaw(yaw);
-                    e.setId(entityId);
-                    e.setUuid(uuid);
-                    MinecraftClient.getInstance().world.addEntity(entityId, e);
-                }
-            });
-        }));
     }
 }

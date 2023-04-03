@@ -17,8 +17,6 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.context.LootContextTypes;
-import net.minecraft.network.Packet;
-import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
@@ -31,8 +29,6 @@ import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-
-import static me.melontini.seedpouches.SeedPouches.SEED_POUCH_PACKET_ID;
 
 public abstract class AbstractPouchEntity extends ThrownItemEntity {
     public AbstractPouchEntity(EntityType<AbstractPouchEntity> entityType, World world) {
@@ -201,10 +197,5 @@ public abstract class AbstractPouchEntity extends ThrownItemEntity {
 
     public Identifier[] getLootId() {
         return getDefaultItem().getLootId();
-    }
-
-    @Override
-    public Packet<ClientPlayPacketListener> createSpawnPacket() {
-        return SeedPouchEntitySpawnPacket.create(this, SEED_POUCH_PACKET_ID);
     }
 }
