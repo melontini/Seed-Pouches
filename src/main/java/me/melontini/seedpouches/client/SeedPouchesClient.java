@@ -10,8 +10,8 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.registry.Registry;
 
 import java.util.UUID;
 
@@ -30,7 +30,7 @@ public class SeedPouchesClient implements ClientModInitializer {
 
     public void receiveEntityPacket() {
         ClientPlayNetworking.registerGlobalReceiver(SEED_POUCH_PACKET_ID, ((client, handler, byteBuf, responseSender) -> {
-            EntityType<?> et = Registry.ENTITY_TYPE.get(byteBuf.readVarInt());
+            EntityType<?> et = Registries.ENTITY_TYPE.get(byteBuf.readVarInt());
             UUID uuid = byteBuf.readUuid();
             int entityId = byteBuf.readVarInt();
 
@@ -46,7 +46,7 @@ public class SeedPouchesClient implements ClientModInitializer {
                         throw new IllegalStateException("Tried to spawn entity in a null world!");
                     Entity e = et.create(MinecraftClient.getInstance().world);
                     if (e == null)
-                        throw new IllegalStateException("Failed to create instance of entity \"" + Registry.ENTITY_TYPE.getId(et) + "\"!");
+                        throw new IllegalStateException("Failed to create instance of entity \"" + Registries.ENTITY_TYPE.getId(et) + "\"!");
                     e.updateTrackedPosition(pos.x, pos.y, pos.z);
                     e.setPos(pos.x, pos.y, pos.z);
                     e.setPitch(pitch);
